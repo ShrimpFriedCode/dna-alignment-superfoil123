@@ -1,7 +1,5 @@
 /**
- * This class is used to score alignments. 
- * 
- * TODO: You are to implement the two score() methods.
+ * This class is used to score alignments.
  *  
  */
 
@@ -51,20 +49,46 @@ public class Judge {
   }
   
   /**
-   * TODO
-   * 
    * Returns the score associated with the two characters.
    */
   public int score(char a, char b) {
-      throw new UnsupportedOperationException();
+    int ret = 0;
+
+    if(a == b && !((a == '_') || (b == '_'))){
+      ret += this.matchCost;
+    }
+    else if((a == '_') || (b == '_')){
+      ret += this.gapCost;
+    }
+    else{
+      ret += this.mismatchCost;
+    }
+    return ret;
   }
-  
+
   /**
-   * TODO
-   * 
    * Returns the score associated with the two strings.
    */
   public int score(String s1, String s2) {
-      throw new UnsupportedOperationException();
+
+    char[] s1arr = s1.toCharArray();
+    char[] s2arr = s2.toCharArray();
+
+    int ret = 0;
+
+    for(int i = 0; i < s1arr.length; i++){
+
+      if(s1arr[i] == s2arr[i] && !((s1arr[i] == '_') || (s2arr[i] == '_'))){
+        ret += this.matchCost;
+      }
+      else if((s1arr[i] == '_') || (s2arr[i] == '_')){
+        ret += this.gapCost;
+      }
+      else{
+        ret += this.mismatchCost;
+      }
+    }
+    return ret;
   }
+
 }

@@ -1,5 +1,5 @@
 /**
- * TODO: Read through this code carefully because your cache in 
+ * Read through this code carefully because your cache in
  * SequenceAligner will be made up of Result objects, and a Result 
  * contains a field of type Direction.
  * 
